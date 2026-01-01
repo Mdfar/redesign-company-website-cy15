@@ -1,0 +1,3 @@
+/**
+
+Automated JSON-LD Schema for Swiss IT Competency */ export const swissITSchema = { "@context": "https://schema.org", "@type": "ITService", "name": "Swiss Competence IT Partner", "areaServed": "Switzerland", "description": "Professional IT consulting and service offerings for Swiss enterprises.", "address": { "@type": "PostalAddress", "addressCountry": "CH" }, "offers": { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IT Strategy & Consulting" } } };
