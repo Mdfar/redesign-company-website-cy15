@@ -1,0 +1,1 @@
+module.exports = { content: ["./src/**/*.{ts,tsx}"], theme: { extend: { colors: { swiss: { red: '#D52B1E', slate: '#1A202C' } }, borderRadius: { '2xl': '1rem' } } }, plugins: [], }
