@@ -1,0 +1,7 @@
+"use client"; import { useState } from 'react'; import { motion } from 'framer-motion';
+
+export function LeadForm() { const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+
+const handleSubmit = async (e: React.FormEvent) => { e.preventDefault(); setStatus('submitting'); // Simulated CRM Integration setTimeout(() => setStatus('success'), 1500); };
+
+return ( <motion.form initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} onSubmit={handleSubmit} className="bg-white p-8 rounded-2xl shadow-xl border border-slate-100" > <h3 className="text-2xl font-bold mb-6">Request a Consulting Session</h3> <div className="space-y-4"> <input type="text" placeholder="Company Name" className="w-full p-3 rounded-lg border focus:ring-2 focus:ring-blue-500 outline-none" required /> <input type="email" placeholder="Work Email" className="w-full p-3 rounded-lg border focus:ring-2 focus:ring-blue-500 outline-none" required /> <select className="w-full p-3 rounded-lg border focus:ring-2 focus:ring-blue-500 outline-none"> <option>Cloud Transformation</option> <option>IT Security Audit</option> <option>Managed Services</option> </select> <button disabled={status !== 'idle'} className="w-full bg-blue-600 text-white py-4 rounded-lg font-bold hover:bg-blue-700 transition-colors" > {status === 'idle' ? 'Get Qualified Quote' : 'Processing...'} </button> </div> {status === 'success' && ( <p className="mt-4 text-green-600 font-medium text-center">Thank you! Our Swiss team will contact you within 24 hours.</p> )} </motion.form> ); }
